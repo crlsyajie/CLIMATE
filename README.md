@@ -1,5 +1,18 @@
 Climate Change Website 
 
+GROUP MEMBERS:
+Fetizanan, Carlos Yajie
+Care, KC
+Bansil, Albert
+Calingasan, Ryle
+Isaac, Kurt
+Camota, Adrian
+Hidalgo, Zyrelle
+Bisa, Eiman Raphael
+Jardin, Fiel Aerhoze
+Escober, Reyahn Marnest
+
+
 Introduction:
 Welcome to our comprehensive guide on climate change, a semestral project for Environmental Science. In this website, we aim to provide a detailed understanding of climate change, its impacts on the environment, society, and economy, and actions that can be taken to mitigate and adapt to its effects. Climate change is one of the most pressing challenges of our time, and it requires collective efforts from individuals, communities, governments, and organizations to address it effectively.
 
