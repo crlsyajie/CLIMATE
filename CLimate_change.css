@@ -251,7 +251,7 @@ body.nav-active { overflow: hidden; }
 
 .headline-1 {
   font-size: var(--fontSize-1);
-  color: var(--text-alice-blue);
+  color: var(--bg-carolina-blue);
   font-weight: var(--weight-extraBold);
 }
 
