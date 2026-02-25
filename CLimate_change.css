@@ -115,6 +115,28 @@
   --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
   --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
 
+  /**
+   * THEME VARIABLES
+   */
+
+  --bg-body: var(--white);
+  --text-body: var(--bg-oxford-blue);
+  --bg-header: hsla(0, 0%, 100%, 0.8);
+  --bg-navbar: var(--bg-oxford-blue-2);
+  --bg-nav-item-hover: var(--bg-prussian-blue);
+  --text-nav-item: var(--text-alice-blue);
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+  --bg-body: #121212;
+  --text-body: #e0e0e0;
+  --bg-header: hsla(222, 47%, 11%, 0.8);
+  --bg-navbar: #1e1e1e;
+  --bg-nav-item-hover: #333333;
+  --text-nav-item: #ffffff;
+  --shadow-soft: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
+
 }
 
 
@@ -187,12 +209,13 @@ html {
 }
 
 body {
-  background-color: var(--white);
-  color: var(--bg-oxford-blue);
+  background-color: var(--bg-body);
+  color: var(--text-body);
   font-family: var(--fontFamily-noto_sans);
   font-size: 1.6rem;
   line-height: var(--lineHeight-4);
   overflow-y: overlay;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.nav-active { overflow: hidden; }
@@ -352,6 +375,31 @@ body.nav-active { overflow: hidden; }
 
 
 
+.theme-toggle-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: var(--text-body);
+  border: 1px solid var(--border-prussian-blue);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--bg-nav-item-hover);
+}
+
+.theme-toggle-btn ion-icon {
+  font-size: 20px;
+}
+
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
@@ -364,13 +412,15 @@ body.nav-active { overflow: hidden; }
   left: 0;
   width: 100%;
   padding-block: 24px;
-  background-color: white;
+  background-color: var(--bg-header);
+  backdrop-filter: blur(10px);
   z-index: 4;
+  transition: background-color 0.3s ease, padding-block 0.3s ease;
 }
 
 .header.active {
   padding-block: 8px;
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-soft);
   border-block-end: 1px solid var(--bg-prussian-blue);
   animation: slideIn 0.5s ease forwards;
 }
@@ -400,7 +450,7 @@ body.nav-active { overflow: hidden; }
   max-width: 340px;
   width: 100%;
   height: 100vh;
-  background-color: var(--bg-oxford-blue-2);
+  background-color: var(--bg-navbar);
   padding: 30px;
   z-index: 2;
   overflow-y: auto;
@@ -429,7 +479,7 @@ body.nav-active { overflow: hidden; }
  }
 
 .navbar-link {
-  color: var(--text-alice-blue);
+  color: var(--text-nav-item);
   font-weight: var(--weight-medium);
   padding-block: 10px;
 }
