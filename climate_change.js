@@ -142,6 +142,7 @@ const updateTemperatureMonitor = async () => {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const currentDate = new Date();
   const temperatureMonitor = document.getElementById("temperature-monitor");
+  if (!temperatureMonitor) return;
 
   for (let i = 6; i >= 0; i--) {
     const date = new Date(currentDate);
@@ -203,4 +204,77 @@ if (themeToggleBtn) {
 }
 
 
+/**
+ * TOAST NOTIFICATION & SUBSCRIBE
+ */
+
+const showToast = function (message, type = 'success') {
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+
+  // Accessibility attributes
+  if (type === 'success') {
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+  } else {
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+  }
+
+  const icon = document.createElement('ion-icon');
+  icon.name = type === 'success' ? 'checkmark-circle-outline' : 'alert-circle-outline';
+  icon.style.fontSize = '24px';
+  icon.setAttribute('aria-hidden', 'true');
+
+  const text = document.createElement('span');
+  text.textContent = message;
+
+  toast.appendChild(icon);
+  toast.appendChild(text);
+
+  document.body.appendChild(toast);
+
+  // Trigger animation
+  requestAnimationFrame(() => {
+    toast.classList.add('show');
+  });
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.addEventListener('transitionend', () => {
+      toast.remove();
+    });
+  }, 3000);
+}
+
+// Subscribe functionality
+const subscribeButtons = document.querySelectorAll('.input-wrapper .btn-primary, .footer-list .btn-primary');
+
+subscribeButtons.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Find the wrapper container
+    let wrapper = btn.closest('.input-wrapper');
+    if (!wrapper) {
+       // For footer where button is sibling to input wrappers
+       wrapper = btn.parentElement;
+    }
+
+    const emailInput = wrapper ? wrapper.querySelector('input[type="email"]') : null;
+
+    if (emailInput && emailInput.value.trim() !== '' && emailInput.value.includes('@')) {
+      showToast('Thank you for subscribing! 🌱', 'success');
+      emailInput.value = '';
+
+      // Also clear name input if exists in the same container
+      const nameInput = wrapper.querySelector('input[name="name"]');
+      if (nameInput) nameInput.value = '';
+
+    } else {
+      showToast('Please enter a valid email address.', 'error');
+      if (emailInput) emailInput.focus();
+    }
+  });
+});
 
