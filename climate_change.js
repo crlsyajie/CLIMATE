@@ -165,6 +165,42 @@ window.addEventListener("load", updateTemperatureMonitor);
 
 
 
+/**
+ * THEME TOGGLE
+ */
+
+const themeToggleBtn = document.getElementById("theme-toggle");
+const themeToggleIcon = themeToggleBtn?.querySelector("ion-icon");
+
+const toggleTheme = function () {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+
+  updateThemeIcon(newTheme);
+}
+
+const updateThemeIcon = function (theme) {
+  if (theme === "dark") {
+    themeToggleIcon.setAttribute("name", "sunny-outline");
+  } else {
+    themeToggleIcon.setAttribute("name", "moon-outline");
+  }
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", toggleTheme);
+
+  // Initialize theme
+  const savedTheme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const initialTheme = savedTheme || systemTheme;
+
+  document.documentElement.setAttribute("data-theme", initialTheme);
+  updateThemeIcon(initialTheme);
+}
 
 
 
