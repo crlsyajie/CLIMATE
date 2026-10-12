@@ -3,1800 +3,499 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon"  type="image/x-icon" href="img/earth-removebg-preview.png">
+  <title>Climate — Live Weather & Climate Intelligence</title>
+  <meta name="description" content="Live conditions, hourly and 10-day forecasts, air quality, heat alerts and climate signals. A semestral Environmental Science project.">
+  <meta name="theme-color" content="#2f6fb8">
+  <link rel="icon" type="image/png" href="img/earth-removebg-preview.png">
 
-  <!-- 
-    - primary meta tags
-  -->
-  <title>Climate Change - Landing Page</title>
-  <meta name="title" content="CLIMATE CHANGE LANDING PAGE">
-  <meta name="description" content="This is a climate change landing page of group 2 a semstral project in Environmental Science">
-
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- 
-    - custom css link
-  -->
   <link rel="stylesheet" href="CLimate_change.css">
-
-  <!-- 
-    - preload images
-  -->
-  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-  <link rel="preload" as="image" href="./assets/images/pattern-2.svg">
-  <link rel="preload" as="image" href="./assets/images/pattern-3.svg">
 
 </head>
 
-<body id="top">
+<body id="top" data-sky="clear-day">
 
-  <!-- 
+  <!-- Adaptive sky -->
+  <div class="sky" aria-hidden="true">
+    <div class="sky-gradient"></div>
+    <canvas class="sky-particles" data-particles></canvas>
+  </div>
+
+  <!--
     - #HEADER
   -->
-
   <header class="header" data-header>
-    <div class="container">
+    <div class="container header-inner">
 
-      <a href="#" class="logo">
-        <img src="img/earth-removebg-preview.png" width="119" height="37" alt="Wren logo">
+      <a href="#top" class="brand" aria-label="Climate home">
+        <span class="brand-mark">
+          <img src="img/earth-removebg-preview.png" width="28" height="28" alt="">
+        </span>
+        <span class="brand-word">Climate</span>
       </a>
 
-      <nav class="navbar" data-navbar>
-
-        <div class="navbar-top">
-          <a href="#" class="logo">
-            <img src="img/earth-removebg-preview.png" width="119" height="37" alt="Wren logo">
-          </a>
-
-          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-          </button>
-        </div>
-
+      <nav class="navbar" data-navbar aria-label="Primary">
         <ul class="navbar-list">
-
-          <li>
-            <a href="#home" class="navbar-link hover-1" data-nav-toggler>Home</a>
-          </li>
-
-          <li>
-            <a href="#featured" class="navbar-link hover-1" data-nav-toggler>Climate Post</a>
-          </li>
-
-          <li>
-            <a href="#camp_tags" class="navbar-link hover-1" data-nav-toggler>Tips</a>
-          </li>
-
-          <li>
-            <a href="#recent" class="navbar-link hover-1" data-nav-toggler>Featured</a>
-          </li>
-
-          <li>
-            <a href="#cont" class="navbar-link hover-1" data-nav-toggler>Contact</a>
-          </li>
-
+          <li><a href="#forecast" class="navbar-link" data-nav-link>Forecast</a></li>
+          <li><a href="#conditions" class="navbar-link" data-nav-link>Conditions</a></li>
+          <li><a href="#signals" class="navbar-link" data-nav-link>Climate</a></li>
+          <li><a href="#act" class="navbar-link" data-nav-link>Take Action</a></li>
+          <li><a href="#team" class="navbar-link" data-nav-link>About</a></li>
         </ul>
-
-        <div class="navbar-bottom">
-
-          <div class="profile-card">
-            <img src="img/earth-removebg-preview.png" width="48" height="48" alt="Steven" class="profile-banner">
-
-            <div>
-              <p class="card-title">Hello Spartan !</p>
-
-              <p class="card-subtitle">
-                You have 3 new messages
-              </p>
-            </div>
+        <div class="navbar-extras">
+          <div class="segmented" role="group" aria-label="Temperature unit">
+            <button class="segmented-btn is-active" data-unit="c" aria-pressed="true">°C</button>
+            <button class="segmented-btn" data-unit="f" aria-pressed="false">°F</button>
           </div>
-
-          <ul class="link-list">
-
-            <li>
-              <a href="#" class="navbar-bottom-link hover-1">Profile</a>
-            </li>
-
-            <li>
-              <a href="#" class="navbar-bottom-link hover-1">Articles Saved</a>
-            </li>
-
-            <li>
-              <a href="#" class="navbar-bottom-link hover-1">Add New Post</a>
-            </li>
-
-            <li>
-              <a href="#" class="navbar-bottom-link hover-1">My Likes</a>
-            </li>
-
-            <li>
-              <a href="#" class="navbar-bottom-link hover-1">Account Setting</a>
-            </li>
-
-            <li>
-              <a href="#" class="navbar-bottom-link hover-1">Sign Out</a>
-            </li>
-
-          </ul>
-
         </div>
-
-        <p class="copyright-text">
-          Copyright 2024 © Climate Change - Landing Page.
-          Developed by crlsbrook
-        </p>
-
       </nav>
 
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
-        <ion-icon name="moon-outline"></ion-icon>
-      </button>
+      <div class="header-actions">
+        <form class="search" role="search" data-search autocomplete="off">
+          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          <input type="search" class="search-input" placeholder="Search city" aria-label="Search for a city"
+            data-search-input>
+          <kbd class="search-kbd">/</kbd>
+          <ul class="search-results" role="listbox" data-search-results hidden></ul>
+        </form>
 
-      <a href="#" class="btn btn-primary">Subscribe</a>
+        <button class="icon-btn" aria-label="Use my location" title="Use my location" data-locate>
+          <ion-icon name="locate-outline" aria-hidden="true"></ion-icon>
+        </button>
 
-      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-      </button>
+        <div class="segmented header-only" role="group" aria-label="Temperature unit">
+          <button class="segmented-btn is-active" data-unit="c" aria-pressed="true">°C</button>
+          <button class="segmented-btn" data-unit="f" aria-pressed="false">°F</button>
+        </div>
+
+        <button class="icon-btn nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
 
     </div>
   </header>
 
-
-
-
-
   <main>
-    <article>
 
-      <!-- 
-        - #HERO
-      -->
+    <!--
+      - #DASHBOARD
+    -->
+    <section class="dashboard" id="forecast" aria-label="Current weather">
+      <div class="container wx">
 
-      <section class="hero" id="home" aria-label="home">
-        <div class="container">
-
-          <div class="hero-content">
-
-            <p class="hero-subtitle">Protect our Mother Earth from</p>
-
-            <h1 class="headline headline-1 section-title">
-              Climate <span class="span">Change</span>
-            </h1>
-
-            <p class="hero-text">
-              Climate change is undeniable. Fueled by human activity, it demands urgent action. We must shift to renewable energy, build resilience, and curb emissions now.
-            </p>
-
-            <a class="CC_readmore" href="https://www.un.org/en/global-issues/climate-change">
-              Read More
-            </a>
-
-            <div class="input-wrapper">
-
-              <input type="email" name="email_address" placeholder="Type your email address" required
-                class="input-field" autocomplete="off">
-
-              <button class="btn btn-primary">
-                <span class="span">Subscribe</span>
-
-                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="hero-banner">
-
-            <img src="img/earth-removebg-preview.png" width="327" height="490" alt="Wren Clark" class="w-100">
-
-            <img src="img/v983-601-removebg-preview.png" width="27" height="26" alt="shape" class="shape shape-1">
-
-            <img src="img/Mercury_planet_or_foreign_planet_-9-removebg-preview.png" width="27" height="26" alt="shape" class="shape shape-2">
-
-          </div>
-
-
+        <!-- Hero -->
+        <div class="hero" data-now aria-live="polite">
+          <p class="hero-eyebrow" data-local-time>—</p>
+          <h1 class="hero-location" data-location>Lipa, Batangas</h1>
+          <p class="hero-temp"><span data-temp>--</span><span class="hero-deg">°</span></p>
+          <p class="hero-condition" data-condition>Fetching forecast</p>
+          <p class="hero-range">H:<span data-high>--°</span>&ensp;L:<span data-low>--°</span></p>
         </div>
-      </section>
 
+        <!-- Severe weather -->
+        <article class="card alert" data-alert hidden>
+          <header class="card-head"><ion-icon name="warning" aria-hidden="true"></ion-icon><span>Weather alert</span></header>
+          <p class="alert-title" data-alert-title></p>
+          <p class="alert-text" data-alert-text></p>
+        </article>
 
+        <div class="wx-grid">
 
+          <!-- Hourly -->
+          <article class="card hourly" aria-label="Hourly forecast">
+            <p class="hourly-summary" data-summary>&nbsp;</p>
+            <div class="hourly-scroll">
+              <div class="hourly-track" data-hourly></div>
+            </div>
+          </article>
 
+          <!-- 10-day -->
+          <article class="card daily" aria-labelledby="daily-label">
+            <header class="card-head"><ion-icon name="calendar-outline" aria-hidden="true"></ion-icon><span id="daily-label">10-day forecast</span></header>
+            <ul class="daily-list" data-daily></ul>
+          </article>
 
-      <!-- 
-        - #TOPICS
-      -->
+          <!-- Tiles -->
+          <div class="tiles" id="conditions">
 
-      <section class="topics" id="topics" aria-labelledby="topic-label">
-        <div class="container">
+            <article class="card tile tile-wide">
+              <header class="card-head"><ion-icon name="leaf-outline" aria-hidden="true"></ion-icon><span>Air quality</span></header>
+              <p class="tile-big"><span data-aqi-value>--</span> – <span data-aqi-label>—</span></p>
+              <p class="tile-note" data-aqi-note>&nbsp;</p>
+              <div class="scale scale-aqi"><span class="scale-thumb" data-aqi-thumb></span></div>
+            </article>
 
-          
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="sunny" aria-hidden="true"></ion-icon><span>UV index</span></header>
+              <p class="tile-value" data-uv>--</p>
+              <p class="tile-label" data-uv-label>—</p>
+              <div class="scale scale-uv"><span class="scale-thumb" data-uv-thumb></span></div>
+              <p class="tile-note" data-uv-note>&nbsp;</p>
+            </article>
 
-          <div class="card topic-card">
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="thermometer-outline" aria-hidden="true"></ion-icon><span>Feels like</span></header>
+              <p class="tile-value" data-feels>--°</p>
+              <p class="tile-label" data-heat-label>—</p>
+              <p class="tile-note" data-heat-note>&nbsp;</p>
+            </article>
 
-            <div class="card-content">
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="partly-sunny" aria-hidden="true"></ion-icon><span data-sun-title>Sunset</span></header>
+              <p class="tile-value sm" data-sun-big>--</p>
+              <svg viewBox="0 0 200 70" class="sun-arc" aria-hidden="true">
+                <line x1="0" y1="44" x2="200" y2="44" class="sun-horizon" />
+                <path d="M0 64 C 40 64, 60 6, 100 6 S 160 64, 200 64" class="sun-path" data-sun-path />
+                <circle r="5" class="sun-dot" data-sun-dot cx="0" cy="64" />
+              </svg>
+              <p class="tile-note" data-sun-note>&nbsp;</p>
+            </article>
 
-              <h2 class="headline headline-2 section-title card-title" id="topic-label">
-                Keep Track
-              </h2>
-
-              <p class="card-text">
-                Recent heat index: Peak 42°C. Current range: 35-40°C. Stay cool.
-              </p>
-
-              <div class="btn-group">
-                <button class="btn-icon" aria-label="previous" data-slider-prev>
-                  <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
-                </button>
-
-                <button class="btn-icon" aria-label="next" data-slider-next>
-                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                </button>
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="navigate" aria-hidden="true"></ion-icon><span>Wind</span></header>
+              <div class="dial">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <g class="dial-ticks" data-compass-ticks></g>
+                  <text x="60" y="19" class="dial-cardinal">N</text>
+                  <text x="101" y="61" class="dial-cardinal">E</text>
+                  <text x="60" y="103" class="dial-cardinal">S</text>
+                  <text x="19" y="61" class="dial-cardinal">W</text>
+                  <g class="compass-needle" data-compass-needle>
+                    <line x1="60" y1="98" x2="60" y2="84" class="needle-line" />
+                    <line x1="60" y1="36" x2="60" y2="24" class="needle-line" />
+                    <path d="M60 12 L66 25 L54 25 Z" class="needle-head" />
+                    <circle cx="60" cy="102" r="3.5" class="needle-tail" />
+                  </g>
+                </svg>
+                <div class="dial-center">
+                  <span class="dial-value" data-wind-speed>--</span>
+                  <span class="dial-unit" data-wind-unit>km/h</span>
+                </div>
               </div>
+              <p class="tile-note" data-wind-note>&nbsp;</p>
+            </article>
 
-            </div>
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="water" aria-hidden="true"></ion-icon><span>Precipitation</span></header>
+              <p class="tile-value" data-precip>--</p>
+              <p class="tile-label">Today</p>
+              <p class="tile-note" data-precip-note>&nbsp;</p>
+            </article>
 
-            <div class="slider" data-slider>
-              <ul class="slider-list" data-slider-container>
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="water-outline" aria-hidden="true"></ion-icon><span>Humidity</span></header>
+              <p class="tile-value" data-humidity>--</p>
+              <p class="tile-note" data-dew>&nbsp;</p>
+            </article>
 
-                <li class="slider-item">
-                  <a href="https://www.google.com/search?q=weather&sca_esv=4490efdd07ced03b&sxsrf=ADLYWIKwV2wk2Tp2sUqYupfSwrR9EHrE1g%3A1716014368710&source=hp&ei=IE1IZtyhKJzW1e8P38KAyAo&iflsig=AL9hbdgAAAAAZkhbMEu3zo6EPpUFz69xgmKgK7bVxh5T&ved=0ahUKEwjcsf7Wy5aGAxUca_UHHV8hAKkQ4dUDCBU&uact=5&oq=weather&gs_lp=Egdnd3Mtd2l6Igd3ZWF0aGVyMgQQIxgnMgoQIxiABBgnGIoFMhMQABiABBixAxhDGIMBGMkDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigVIkw5QAFjjDHAAeACQAQCYAaQBoAG6BqoBAzIuNbgBA8gBAPgBAZgCB6AC5AbCAg0QABiABBixAxhDGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAuGIAEGNEDGEMYxwEYigXCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFmAMAkgcDMC43oAfFQw&sclient=gws-wiz" class="slider-card">
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="eye" aria-hidden="true"></ion-icon><span>Visibility</span></header>
+              <p class="tile-value" data-visibility>--</p>
+              <p class="tile-note" data-visibility-note>&nbsp;</p>
+            </article>
 
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="img/1.png" width="507" height="618" loading="lazy" alt="Sport"
-                        class="img-cover">
-                    </figure>
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="cloud" aria-hidden="true"></ion-icon><span>Cloud cover</span></header>
+              <p class="tile-value" data-cloud>--</p>
+              <p class="tile-label" data-cloud-label>—</p>
+              <p class="tile-note" data-cloud-note>&nbsp;</p>
+            </article>
 
-                    <div class="slider-content">
-                      <span class="slider-title">Monday</span>
-
-                      <p class="slider-subtitle">May 13 , 2024</p>
-                    </div>
-
-                  </a>
-                </li>
-
-                <li class="slider-item">
-                  <a href="https://www.google.com/search?q=weather&sca_esv=4490efdd07ced03b&sxsrf=ADLYWIKwV2wk2Tp2sUqYupfSwrR9EHrE1g%3A1716014368710&source=hp&ei=IE1IZtyhKJzW1e8P38KAyAo&iflsig=AL9hbdgAAAAAZkhbMEu3zo6EPpUFz69xgmKgK7bVxh5T&ved=0ahUKEwjcsf7Wy5aGAxUca_UHHV8hAKkQ4dUDCBU&uact=5&oq=weather&gs_lp=Egdnd3Mtd2l6Igd3ZWF0aGVyMgQQIxgnMgoQIxiABBgnGIoFMhMQABiABBixAxhDGIMBGMkDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigVIkw5QAFjjDHAAeACQAQCYAaQBoAG6BqoBAzIuNbgBA8gBAPgBAZgCB6AC5AbCAg0QABiABBixAxhDGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAuGIAEGNEDGEMYxwEYigXCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFmAMAkgcDMC43oAfFQw&sclient=gws-wiz" class="slider-card">
-
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="img/2.png" width="507" height="618" loading="lazy" alt="Travel"
-                        class="img-cover">
-                    </figure>
-
-                    <div class="slider-content">
-                      <span class="slider-title">Tuesday</span>
-
-                      <p class="slider-subtitle">May 14 , 2024</p>
-                    </div>
-
-                  </a>
-                </li>
-
-                <li class="slider-item">
-                  <a href="https://www.google.com/search?q=weather&sca_esv=4490efdd07ced03b&sxsrf=ADLYWIKwV2wk2Tp2sUqYupfSwrR9EHrE1g%3A1716014368710&source=hp&ei=IE1IZtyhKJzW1e8P38KAyAo&iflsig=AL9hbdgAAAAAZkhbMEu3zo6EPpUFz69xgmKgK7bVxh5T&ved=0ahUKEwjcsf7Wy5aGAxUca_UHHV8hAKkQ4dUDCBU&uact=5&oq=weather&gs_lp=Egdnd3Mtd2l6Igd3ZWF0aGVyMgQQIxgnMgoQIxiABBgnGIoFMhMQABiABBixAxhDGIMBGMkDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigVIkw5QAFjjDHAAeACQAQCYAaQBoAG6BqoBAzIuNbgBA8gBAPgBAZgCB6AC5AbCAg0QABiABBixAxhDGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAuGIAEGNEDGEMYxwEYigXCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFmAMAkgcDMC43oAfFQw&sclient=gws-wiz" class="slider-card">
-
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="img/3.png" width="507" height="618" loading="lazy" alt="Design"
-                        class="img-cover">
-                    </figure>
-
-                    <div class="slider-content">
-                      <span class="slider-title">Wednesday</span>
-
-                      <p class="slider-subtitle">May 15 , 2024</p>
-                    </div>
-
-                  </a>
-                </li>
-
-                <li class="slider-item">
-                  <a href="https://www.google.com/search?q=weather&sca_esv=4490efdd07ced03b&sxsrf=ADLYWIKwV2wk2Tp2sUqYupfSwrR9EHrE1g%3A1716014368710&source=hp&ei=IE1IZtyhKJzW1e8P38KAyAo&iflsig=AL9hbdgAAAAAZkhbMEu3zo6EPpUFz69xgmKgK7bVxh5T&ved=0ahUKEwjcsf7Wy5aGAxUca_UHHV8hAKkQ4dUDCBU&uact=5&oq=weather&gs_lp=Egdnd3Mtd2l6Igd3ZWF0aGVyMgQQIxgnMgoQIxiABBgnGIoFMhMQABiABBixAxhDGIMBGMkDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigVIkw5QAFjjDHAAeACQAQCYAaQBoAG6BqoBAzIuNbgBA8gBAPgBAZgCB6AC5AbCAg0QABiABBixAxhDGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAuGIAEGNEDGEMYxwEYigXCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFmAMAkgcDMC43oAfFQw&sclient=gws-wiz" class="slider-card">
-
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="img/4.png" width="507" height="618" loading="lazy" alt="Movie"
-                        class="img-cover">
-                    </figure>
-
-                    <div class="slider-content">
-                      <span class="slider-title">Thursday</span>
-
-                      <p class="slider-subtitle">May 16 , 2024</p>
-                    </div>
-
-                  </a>
-                </li>
-
-                <li class="slider-item">
-                  <a href="https://www.google.com/search?q=weather&sca_esv=4490efdd07ced03b&sxsrf=ADLYWIKwV2wk2Tp2sUqYupfSwrR9EHrE1g%3A1716014368710&source=hp&ei=IE1IZtyhKJzW1e8P38KAyAo&iflsig=AL9hbdgAAAAAZkhbMEu3zo6EPpUFz69xgmKgK7bVxh5T&ved=0ahUKEwjcsf7Wy5aGAxUca_UHHV8hAKkQ4dUDCBU&uact=5&oq=weather&gs_lp=Egdnd3Mtd2l6Igd3ZWF0aGVyMgQQIxgnMgoQIxiABBgnGIoFMhMQABiABBixAxhDGIMBGMkDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigVIkw5QAFjjDHAAeACQAQCYAaQBoAG6BqoBAzIuNbgBA8gBAPgBAZgCB6AC5AbCAg0QABiABBixAxhDGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAuGIAEGNEDGEMYxwEYigXCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFmAMAkgcDMC43oAfFQw&sclient=gws-wiz" class="slider-card">
-
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="img/5.png" width="507" height="618" loading="lazy" alt="Lifestyle"
-                        class="img-cover">
-                    </figure>
-
-                    <div class="slider-content">
-                      <span class="slider-title">Friday</span>
-
-                      <p class="slider-subtitle">May 17 , 2024</p>
-                    </div>
-
-                  </a>
-                </li>
-
-                <li class="slider-item">
-                  <a href="https://www.google.com/search?q=weather&sca_esv=4490efdd07ced03b&sxsrf=ADLYWIKwV2wk2Tp2sUqYupfSwrR9EHrE1g%3A1716014368710&source=hp&ei=IE1IZtyhKJzW1e8P38KAyAo&iflsig=AL9hbdgAAAAAZkhbMEu3zo6EPpUFz69xgmKgK7bVxh5T&ved=0ahUKEwjcsf7Wy5aGAxUca_UHHV8hAKkQ4dUDCBU&uact=5&oq=weather&gs_lp=Egdnd3Mtd2l6Igd3ZWF0aGVyMgQQIxgnMgoQIxiABBgnGIoFMhMQABiABBixAxhDGIMBGMkDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigVIkw5QAFjjDHAAeACQAQCYAaQBoAG6BqoBAzIuNbgBA8gBAPgBAZgCB6AC5AbCAg0QABiABBixAxhDGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAuGIAEGNEDGEMYxwEYigXCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFmAMAkgcDMC43oAfFQw&sclient=gws-wiz" class="slider-card">
-
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="img/6.png" width="507" height="618" loading="lazy" alt="Travel"
-                        class="img-cover">
-                    </figure>
-
-                    <div class="slider-content">
-                      <span class="slider-title">Saturday</span>
-
-                      <p class="slider-subtitle">May 18 , 2024</p>
-                    </div>
-
-                  </a>
-                </li>
-
-                <li class="slider-item">
-                  <a href="https://www.google.com/search?q=weather&sca_esv=4490efdd07ced03b&sxsrf=ADLYWIKwV2wk2Tp2sUqYupfSwrR9EHrE1g%3A1716014368710&source=hp&ei=IE1IZtyhKJzW1e8P38KAyAo&iflsig=AL9hbdgAAAAAZkhbMEu3zo6EPpUFz69xgmKgK7bVxh5T&ved=0ahUKEwjcsf7Wy5aGAxUca_UHHV8hAKkQ4dUDCBU&uact=5&oq=weather&gs_lp=Egdnd3Mtd2l6Igd3ZWF0aGVyMgQQIxgnMgoQIxiABBgnGIoFMhMQABiABBixAxhDGIMBGMkDGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYgwEYigUyEBAAGIAEGLEDGEMYgwEYigUyChAAGIAEGEMYigVIkw5QAFjjDHAAeACQAQCYAaQBoAG6BqoBAzIuNbgBA8gBAPgBAZgCB6AC5AbCAg0QABiABBixAxhDGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAuGIAEGNEDGEMYxwEYigXCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFmAMAkgcDMC43oAfFQw&sclient=gws-wiz" class="slider-card">
-
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="img/7.png" width="507" height="618" loading="lazy" alt="Travel"
-                        class="img-cover">
-                    </figure>
-
-                    <div class="slider-content">
-                      <span class="slider-title">Sunday</span>
-
-                      <p class="slider-subtitle">May 19 , 2024</p>
-                    </div>
-
-                  </a>
-                </li>
-
-              </ul>
-            </div>
+            <article class="card tile">
+              <header class="card-head"><ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon><span>Pressure</span></header>
+              <div class="dial">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <g class="dial-ticks" data-gauge-ticks></g>
+                  <g class="gauge-needle" data-gauge-needle><rect x="58.5" y="8" width="3" height="17" rx="1.5" /></g>
+                </svg>
+                <div class="dial-center">
+                  <ion-icon name="remove" data-pressure-arrow aria-hidden="true"></ion-icon>
+                  <span class="dial-value" data-pressure>--</span>
+                  <span class="dial-unit">hPa</span>
+                </div>
+              </div>
+              <p class="tile-note" data-pressure-note>&nbsp;</p>
+            </article>
 
           </div>
-
         </div>
-      </section>
+
+        <p class="attribution">
+          <span data-updated>Loading…</span> · Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+        </p>
+      </div>
+    </section>
 
 
-
-
-
-      <!-- 
-        - #FEATURED POST
-      -->
-
-      <section class="section feature" aria-label="feature" id="featured">
-        <div class="container">
-
-          <h2 class="headline headline-2 section-title">
-            <span class="span">Climate's Post</span>
-          </h2>
-
+    <!--
+      - #CLIMATE SIGNALS
+    -->
+    <section class="section signals" id="signals" aria-labelledby="signals-label">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Planetary vital signs</p>
+          <h2 class="section-title" id="signals-label">The weather is local.<br><span class="muted">The climate is global.</span></h2>
           <p class="section-text">
-            Stay informed with top-rated articles. Discover the latest research, innovative solutions, and expert opinions on global warming.
+            Climate change is undeniable. Fueled by human activity, it demands urgent action — a shift to renewable energy,
+            resilient communities and deep cuts to emissions.
           </p>
-
-          <ul class="feature-list">
-
-            <li>
-              <div class="card feature-card">
-
-                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="img/Blazing Flames Create Stunning Landscapes.jpg" width="1602" height="903" loading="lazy"
-                    alt="Forest fire engulfing landscape" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-tag">
-                      <a href="#" class="span hover-2">#ForestFire</a>
-
-                      <a href="#" class="span hover-2">#SavePlanetEarth</a>
-                    </div>
-
-                    <div class="wrapper">
-                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">3 mins read</span>
-                    </div>
-                  </div>
-
-                  <h3 class="headline headline-3">
-                    <a href="https://www.noaa.gov/noaa-wildfire/wildfire-climate-connection#:~:text=Research%20shows%20that%20changes%20in,fuels%20during%20the%20fire%20season." class="card-title hover-2">
-                      "Forest Fire Engulfs Thousands of Acres, Threatening Wildlife and Communities"
-                    </a>
-                  </h3>
-
-                  <div class="card-wrapper">
-
-                    <div class="profile-card">
-                      <img src="img/413176132_1490694741788327_6171468843337700105_n.jpg" width="48" height="48" loading="lazy" alt="Joseph"
-                        class="profile-banner">
-
-                      <div>
-                        <p class="card-title">Carlos Yajie</p>
-
-                        <p class="card-subtitle">1 May 2024</p>
-                      </div>
-                    </div>
-
-                    <a href="https://www.noaa.gov/noaa-wildfire/wildfire-climate-connection#:~:text=Research%20shows%20that%20changes%20in,fuels%20during%20the%20fire%20season." class="card-btn">Read more</a>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="card feature-card">
-
-                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="img/MELTING ICE CAPS_ Coastal cities under threat as Antarctica thaws.jpg" width="1602" height="903" loading="lazy"
-                    alt="Melting ice caps and coastal flooding" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
-
-                      <a href="#" class="span hover-2">#Movie</a>
-                    </div>
-
-                    <div class="wrapper">
-                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">6 mins read</span>
-                    </div>
-                  </div>
-
-                  <h3 class="headline headline-3">
-                    <a href="https://scied.ucar.edu/learning-zone/climate-change-impacts/climate-and-ice#:~:text=Melting%20ice%20causes%20more%20warming.&text=As%20global%20warming%20causes%20more,the%20heat%20to%20the%20atmosphere." class="card-title hover-2">
-                      "Melting Ice Caps Accelerate, Raising Sea Levels and Climate Concerns" 
-                    </a>
-                  </h3>
-
-                  <div class="card-wrapper">
-
-                    <div class="profile-card">
-                      <img src="img/received_819953090007223.jpeg" width="48" height="48" loading="lazy" alt="Joseph"
-                        class="profile-banner">
-
-                      <div>
-                        <p class="card-title">Ryle Calingasan</p>
-
-                        <p class="card-subtitle">18 May 2024</p>
-                      </div>
-                    </div>
-
-                    <a href="https://scied.ucar.edu/learning-zone/climate-change-impacts/climate-and-ice#:~:text=Melting%20ice%20causes%20more%20warming.&text=As%20global%20warming%20causes%20more,the%20heat%20to%20the%20atmosphere." class="card-btn">Read more</a>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="card feature-card">
-
-                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="img/Free Photo _ Girls sitting hugging their knees, looking at the sky and having trees on dry ground.jpg" width="1602" height="903" loading="lazy"
-                    alt="Woman sitting on dry cracked earth" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
-
-                      <a href="#" class="span hover-2">#Movie</a>
-                    </div>
-
-                    <div class="wrapper">
-                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">6 mins read</span>
-                    </div>
-                  </div>
-
-                  <h3 class="headline headline-3">
-                    <a href="https://www.noaa.gov/noaa-wildfire/wildfire-climate-connection#:~:text=Research%20shows%20that%20changes%20in,fuels%20during%20the%20fire%20season." class="card-title hover-2">
-                      "Drought Ravages Farmlands, Threatening Food Security and Livelihoods"
-                    </a>
-                  </h3>
-
-                  <div class="card-wrapper">
-
-                    <div class="profile-card">
-                      <img src="img/escober.png" width="48" height="48" loading="lazy" alt="Joseph"
-                        class="profile-banner">
-
-                      <div>
-                        <p class="card-title">Reyahn Escober</p>
-
-                        <p class="card-subtitle">18 May 2024</p>
-                      </div>
-                    </div>
-
-                    <a href="https://www.noaa.gov/noaa-wildfire/wildfire-climate-connection#:~:text=Research%20shows%20that%20changes%20in,fuels%20during%20the%20fire%20season." class="card-btn">Read more</a>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="card feature-card">
-
-                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="img/Smoke Stacks Smog Pollution.jpg" width="1602" height="903" loading="lazy"
-                    alt="Factory smoke stacks emitting pollution" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
-
-                      <a href="#" class="span hover-2">#Movie</a>
-                    </div>
-
-                    <div class="wrapper">
-                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">6 mins read</span>
-                    </div>
-                  </div>
-
-                  <h3 class="headline headline-3">
-                    <a href="https://scied.ucar.edu/image/factory-smoke" class="card-title hover-2">
-                      "Pollution Crisis Grips Cities, Prompting Calls for Immediate Action"
-                    </a>
-                  </h3>
-
-                  <div class="card-wrapper">
-
-                    <div class="profile-card">
-                      <img src="img/received_1566086830894722 (1).jpeg" width="48" height="48" loading="lazy" alt="Joseph"
-                        class="profile-banner">
-
-                      <div>
-                        <p class="card-title">Adrian Camota</p>
-
-                        <p class="card-subtitle">18 May 2024</p>
-                      </div>
-                    </div>
-
-                    <a href="https://scied.ucar.edu/image/factory-smoke" class="card-btn">Read more</a>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="card feature-card">
-
-                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="img/Updates_ More of I-12 now open in both directions; I-10 westbound closes at La_ 73 in Ascension Parish; major roads in Central completely flooded.jpg" width="1602" height="903" loading="lazy"
-                    alt="Flooded highway and vehicles" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
-
-                      <a href="#" class="span hover-2">#Movie</a>
-                    </div>
-
-                    <div class="wrapper">
-                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">6 mins read</span>
-                    </div>
-                  </div>
-
-                  <h3 class="headline headline-3">
-                    <a href="https://www.nytimes.com/article/flooding-climate-change.html#:~:text=Warmer%20temperatures%20increase%20evaporation%2C%20putting,while%20the%20magnitude%20gets%20higher." class="card-title hover-2">
-                      "Floodwaters Devastate Regions, Prompting Urgent Evacuations and Relief Efforts"
-                    </a>
-                  </h3>
-
-                  <div class="card-wrapper">
-
-                    <div class="profile-card">
-                      <img src="img/pic.jpg" width="48" height="48" loading="lazy" alt="Joseph"
-                        class="profile-banner">
-
-                      <div>
-                        <p class="card-title">Eiman Bisa</p>
-
-                        <p class="card-subtitle">25 Nov 2022</p>
-                      </div>
-                    </div>
-
-                    <a href="https://www.nytimes.com/article/flooding-climate-change.html#:~:text=Warmer%20temperatures%20increase%20evaporation%2C%20putting,while%20the%20magnitude%20gets%20higher." class="card-btn">Read more</a>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-          <a href="#" class="btn btn-secondary">
-            <span class="span">Show More Posts</span>
-
-            <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-          </a>
-
+        </header>
+
+        <div class="signal-grid">
+          <article class="panel signal">
+            <p class="signal-label">Atmospheric CO₂</p>
+            <p class="signal-value">424.6<small>ppm</small></p>
+            <p class="signal-delta up"><ion-icon name="trending-up" aria-hidden="true"></ion-icon> +34% since 1960</p>
+            <svg class="spark" viewBox="0 0 200 60" preserveAspectRatio="none" data-spark="316.9,325.7,338.8,354.4,369.7,389.9,414.2,424.6" aria-hidden="true"></svg>
+            <p class="signal-source">Mauna Loa annual mean, 2024 · NOAA</p>
+          </article>
+
+          <article class="panel signal">
+            <p class="signal-label">Global temperature</p>
+            <p class="signal-value">+1.55<small>°C</small></p>
+            <p class="signal-delta up"><ion-icon name="flame-outline" aria-hidden="true"></ion-icon> Warmest year on record</p>
+            <div class="signal-gauge"><span style="--v: 1.55"></span><i style="--at: 1.5">1.5° Paris limit</i></div>
+            <p class="signal-source">2024 vs. 1850–1900 baseline · WMO</p>
+          </article>
+
+          <article class="panel signal">
+            <p class="signal-label">Sea level rise</p>
+            <p class="signal-value">+10<small>cm</small></p>
+            <p class="signal-delta up"><ion-icon name="water-outline" aria-hidden="true"></ion-icon> Since satellite records began</p>
+            <svg class="spark" viewBox="0 0 200 60" preserveAspectRatio="none" data-spark="0,7,14,22,30,39,52,63,78,92,101" aria-hidden="true"></svg>
+            <p class="signal-source">Global mean since 1993 · NASA</p>
+          </article>
+
+          <article class="panel signal">
+            <p class="signal-label">Arctic sea ice</p>
+            <p class="signal-value">−12.2<small>% / decade</small></p>
+            <p class="signal-delta down"><ion-icon name="snow-outline" aria-hidden="true"></ion-icon> September minimum extent</p>
+            <svg class="spark" viewBox="0 0 200 60" preserveAspectRatio="none" data-spark="7.05,6.9,6.2,6.1,6.3,5.5,4.9,4.6,3.9,4.3" aria-hidden="true"></svg>
+            <p class="signal-source">Trend since 1979 · NSIDC</p>
+          </article>
         </div>
 
-        
-      </section>
-
-
-
-
-
-      <!-- 
-        - #POPULAR TAGS
-      -->
-
-      <section class="tags" id="camp_tags" aria-labelledby="tag-label">
-        <div class="container">
-
-          <h2 class="headline headline-2 section-title" id="tag-label">
-            <span class="span">Tips To Prevent Climate Change</span>
-          </h2>
-
-          <p class="section-text">
-            Prevent climate change with simple actions. Save energy, choose sustainable transport, reduce waste, and spread awareness. Small steps make a big difference.
-          </p>
-
-          <ul class="grid-list">
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Going Zero Waste_ 30 Easy Swaps To Going (Almost) Waste Free.jpg" width="32" height="32" loading="lazy" alt="Travel">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Reduce</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Ícone de reciclagem, símbolo de reutilização, redução de lixo e aumento de reciclagem redesenhado com cores verdes úteis para infográficos e rótulos isolados no fundo branco vector _ Vetor Premium.jpg" width="32" height="32" loading="lazy" alt="Culture">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Recycle</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Free Vector _ Reduce reuse and recycle icon.jpg" width="32" height="32" loading="lazy" alt="Lifestyle">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Reuse</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Desain Logo Daun, Clipart Daun, Daun, Vektor PNG dan Vektor dengan Background Transparan untuk Unduh Gratis.jpg" width="32" height="32" loading="lazy" alt="Fashion">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Conserve</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn" >
-                <img src="img/Modern Green Mangrove Plant Tree for Garden Park Conservation Logo Design Vector.jpg" width="32" height="32" loading="lazy" alt="Food">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Plant</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Notary Clipart Hd PNG, Notary Law Logo, Comparison, Measure, Graphic PNG Image For Free Download.jpg" width="32" height="32" loading="lazy" alt="Space">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Advocate</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Premium Vector _ Graduation cap symbol of education illustration design_.jpg" width="32" height="32" loading="lazy" alt="Animal">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Educate</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Pujiarts.jpg" width="32" height="32" loading="lazy" alt="Minimal">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Innovate</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Premium Vector _ House electric logo, electrical logo.jpg" width="32" height="32" loading="lazy" alt="Interior">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Electrify</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Dnevnik Logo _ SVG _ Real Company _ Alphabet, Letter D Logo.jpg" width="32" height="32" loading="lazy" alt="Plant">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Adapt</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/Plant Logo.jpg" width="32" height="32" loading="lazy" alt="Nature">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Save</a>
-              </button>
-            </li>
-
-            <li>
-              <button class="card tag-btn">
-                <img src="img/WeVote.jpg" width="32" height="32" loading="lazy" alt="Business">
-
-                <a href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" class="btn-text">Vote</a>
-              </button>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #FEATURED POST
-      -->
-
-      <section class="section recent-post" id="recent" aria-labelledby="recent-label">
-        <div class="container">
-
-          
-          <div class="post-main">
-
-            <h2 class="headline headline-2 section-title">
-              <span class="span">Featured Post</span>
-            </h2>
-
-            <p class="section-text">
-              Join us in combating global warming. Your donation funds reforestation, clean energy, and conservation. Be part of the change today.
-            </p>
-
-            <ul class="grid-list">
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/ilyess_1440812.jpg" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2 hf">Ilyess El Korbi</a>
-                    </h3>
-
-                    <p class="card-text">
-                      Born in Ukraine, Ilyess grew up in Morrocco, moving back to Ukraine when they were 14-years-old. When Ilyess wanted to take part in climate movement protests in 2019, they discovered that none had yet been registered in Ukraine. Together with friends, they changed this and Ilyess is now the board secretary of Fridays For Future Ukraine.
-
-When the war broke out in Ukraine, Ilyess was in Kyiv and fortunately was able to flee to Berlin a short time after. Together with other climate activists in Germany, they are now raising awareness about the situation in Ukraine and the climate crisis.
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <a href="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/img_20210503_221624.jpg" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2">Elizabeth Wanjiru Wathuti</a>
-                    </h3>
-
-                    <p class="card-text">
-                      Award-winning Kenyan environment activist Elizabeth Wanjiru Wathuti founded the Green Generation Initiative which has planted over 30,000 tree seedlings in Kenya and encourages young people to discover and care for nature. "When I was younger, I had an opportunity to spend time in nature, in the central highlands of Kenya, but along the way, I witnessed deforestation firsthand. The wild forests I liked to play in were cut down. The streams I used to drink from are now polluted or drying up. 
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <ahref="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/image.png" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2">Greta Thunberg</a>
-                    </h3>
-
-                    <p class="card-text">
-                      A global figure and a key name in the climate conversation, we couldn’t compile a list of climate warriors without including Swedish activist Greta Thunberg.  What originally began as a solo protest outside of her school, has now snowballed into Fridays for Future, an international school strike on involving millions around the world. Not only that but in 2019 she sailed across the atlantic to attend the UN climate conference. Later that year, she was crowned Time’s Magazine person of the year. 
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <a href="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/thumbnail_47121558-7f30-468f-8bbc-24c59afb1b98.jpeg" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2">Tori Tsui</a>
-                    </h3>
-
-                    <p class="card-text">
-                    
-Bristol-based Tori Tsui is a climate activist, speaker and writer from Hong Kong and New Zealand. Featured as Stella McCartney’s agent of change in 2019, she is working on her debut book due for release in 2022.
-
-Tori told us: “Climate justice for me is about survival and a very rudimentary and basic love for the planet and its inhabitants. Climate justice is a chance for us to rewrite and transform our relationships with one another and campaign for reparative actions that benefit society’s most marginalised. It is essential in tackling the climate crisis.”
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <a href="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/Screenshot 2024-05-17 211933.png" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2">John Paul Jose</a>
-                    </h3>
-
-                    <p class="card-text">
-                      John Paul Jose is an environmental and climate activist from Kerala, India. His accolades range from collaboration with NGOs and the UN and delivering Tedx Talks - all before his 24th birthday.  With first-hand experience of the impact of climate change, John Paul is committed to highlighting how global warming is affecting India’s forests and ecosystems.
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <a href="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/image copy.png" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2">Climate Change Commision</a>
-                    </h3>
-
-                    <p class="card-text">
-                      The Climate Change Commission of the Philippines is the country’s lead policy-making body dedicated to addressing climate change. Established under the Climate Change Act of 2009, it is tasked with coordinating, monitoring, and evaluating government programs and ensuring the mainstreaming of climate change in national, local, and sectoral development plans. The commission aims to build the adaptive capacity of communities, increase the resilience of natural ecosystems, and optimize mitigation opportunities towards a climate-resilient and low-carbon economy. It works in close collaboration with various stakeholders, including government agencies, local government units, non-governmental organizations, and the private sector, to develop comprehensive and sustainable strategies for combating climate change and its impacts.
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <a href="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/Screenshot 2024-05-18 103904.png" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2">Dominique Palmer</a>
-                    </h3>
-
-                    <p class="card-text">
-                      Dominique Palmer is a climate justice activist and student at the University of Birmingham, England. She is involved in the youth-led climate strike movement, Fridays for Future that started in August 2018.  She uses her platform to share information on how to take action and discusses themes of gender and race within the climate crisis. 
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <a href="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="recent-post-card">
-
-                  <figure class="card-banner img-holder" style="--width: 271; --height: 258;">
-                    <img src="img/Screenshot 2024-05-18 104228.png" width="271" height="258" loading="lazy"
-                      alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover">
-                  </figure>
-
-                  <div class="card-content">
-
-                    <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="card-badge">Donations</a>
-
-                    <h3 class="headline headline-3 card-title">
-                      <a href="https://www.rescue.org/uk/article/12-climate-activists-inspiring-us-fight-climate-change?fbclid=IwAR2A3XkyVutXWMGIFORF_qdmMsggR6vUQ2u1rH1gRMHM09q7oJvgZ8wYU8c" class="link hover-2">Fatou Jeng</a>
-                    </h3>
-
-                    <p class="card-text">
-                      Fatou Jeng is a youth climate activist in Gambia, focused on education, conservation and planting trees. She founded Clean Earth Gambia. Currenlty, Fatou is studying for a Masters in Environment, Development and Policy at the University of Surrey.
-                    </p>
-
-                    <div class="card-wrapper">
-                      <div class="card-tag">
-                        <a href="#" class="span hover-2"># SaveEarth</a>
-
-                        <a href="#" class="span hover-2"># OneNationOneGoal</a>
-                      </div>
-
-                      <div class="wrapper">
-                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                        <span class="span">3 mins read</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </li>
-
-            </ul>
-
-            <nav aria-label="pagination" class="pagination">
-
-              <a href="#" class="pagination-btn" aria-label="previous page">
-                <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
-              </a>
-
-              <a href="#" class="pagination-btn">1</a>
-              <a href="#" class="pagination-btn">2</a>
-              <a href="#" class="pagination-btn">3</a>
-              <a href="#" class="pagination-btn" aria-label="more page">...</a>
-
-              <a href="#" class="pagination-btn" aria-label="next page">
-                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-              </a>
-
-            </nav>
-
+        <a class="text-link" href="https://www.un.org/en/global-issues/climate-change" target="_blank" rel="noopener">
+          Read the UN climate briefing <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+        </a>
+      </div>
+    </section>
+
+
+
+
+    <!--
+      - #TAKE ACTION
+    -->
+    <section class="section act" id="act" aria-labelledby="act-label">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Take action</p>
+          <h2 class="section-title" id="act-label">Small steps, measurable impact</h2>
+          <p class="section-text">Save energy, choose sustainable transport, reduce waste and spread awareness.</p>
+        </header>
+
+        <ul class="action-grid">
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="trash-bin-outline" aria-hidden="true"></ion-icon><span>Reduce</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="sync-outline" aria-hidden="true"></ion-icon><span>Recycle</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="repeat-outline" aria-hidden="true"></ion-icon><span>Reuse</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="water-outline" aria-hidden="true"></ion-icon><span>Conserve</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="leaf-outline" aria-hidden="true"></ion-icon><span>Plant</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="megaphone-outline" aria-hidden="true"></ion-icon><span>Advocate</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="school-outline" aria-hidden="true"></ion-icon><span>Educate</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="bulb-outline" aria-hidden="true"></ion-icon><span>Innovate</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="flash-outline" aria-hidden="true"></ion-icon><span>Electrify</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="shield-checkmark-outline" aria-hidden="true"></ion-icon><span>Adapt</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="bicycle-outline" aria-hidden="true"></ion-icon><span>Commute</span></a></li>
+          <li><a class="action" href="https://onetreeplanted.org/blogs/stories/ways-to-stop-climate-change" target="_blank" rel="noopener"><ion-icon name="checkbox-outline" aria-hidden="true"></ion-icon><span>Vote</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!--
+      - #VOICES
+    -->
+    <section class="section voices" id="voices" aria-labelledby="voices-label">
+      <div class="container">
+        <header class="section-head row">
+          <div>
+            <p class="eyebrow">Voices of the movement</p>
+            <h2 class="section-title" id="voices-label">The people pushing for change</h2>
           </div>
-
-          <div class="post-aside grid-list">
-
-            <div class="card aside-card">
-
-              <h3 class="headline headline-2 aside-title">
-                <span class="s" >Popular Posts</span>
-              </h3>
-
-              <ul class="popular-list">
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/413176132_1490694741788327_6171468843337700105_n.jpg" width="64" height="64" loading="lazy"
-                        alt="Creating is a privilege but it’s also a gift" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Every small action counts! Let's all do our part to reduce our carbon footprint and protect our planet. 🌍💚"</a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">1 sec ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </li>
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/received_1566086830894722 (1).jpeg" width="64" height="64" loading="lazy"
-                        alt="Creating is a privilege but it’s also a gift" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Switching to renewable energy sources is crucial for a sustainable future. Solar and wind power can make a huge difference! 🌞🌬️"
-
-                        </a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">1 sec ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/pic.jpg" width="64" height="64" loading="lazy"
-                        alt="Creating is a privilege but it’s also a gift" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Planting more trees is one of the simplest and most effective ways to combat climate change. Let's get planting! 🌳🌿"</a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">1 sec ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/received_819953090007223.jpeg" width="64" height="64" loading="lazy"
-                        alt="Creating is a privilege but it’s also a gift" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Reducing waste and recycling more can help lower greenhouse gas emissions. Let's commit to a zero-waste lifestyle! ♻️🌱"</a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">2 secs ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/escober.png" width="64" height="64" loading="lazy"
-                        alt="Creating is a privilege but it’s also a gift" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Supporting policies that promote environmental protection is essential. Use your voice to advocate for change! 📢🌏"</a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">2 secs ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/zyrell.jpg" width="64" height="64" loading="lazy"
-                        alt="Creating is a privilege but it’s also a gift" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Opting for public transportation, biking, or walking can significantly reduce carbon emissions. Let's make eco-friendly travel choices! 🚴‍♂️🚌"</a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">2 secs ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-                
-                
-
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/IMG_20240504_163559.jpg" width="64" height="64" loading="lazy"
-                        alt="Being unique is better than being perfect" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Educating ourselves and others about climate change is key. Knowledge is power in the fight for our planet! 📚🌐"
-
-                        </a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">2 secs ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/436596675_760770256044021_6695509813657021885_n.jpg" width="64" height="64" loading="lazy"
-                        alt="Every day, in every city and town across the country" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Eating a plant-based diet can greatly reduce our environmental impact. Consider going meatless a few days a week! 🥦🥕"
-
-                        </a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">3 secs ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/440981525_894104965817010_2946581694803381330_n.jpg" width="64" height="64" loading="lazy"
-                        alt="Your voice, your mind, your story, your vision" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Water conservation is critical. Simple actions like fixing leaks and using water-saving appliances make a big difference. 💧💚"
-
-                        </a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">3 secs ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-                <li>
-                  <div class="popular-card">
-
-                    <figure class="card-banner img-holder" style="--width: 64; --height: 64;">
-                      <img src="img/441059181_25678265511789003_203234534670891578_n.jpg" width="64" height="64" loading="lazy"
-                        alt="Being unique is better than being perfect" class="img-cover">
-                    </figure>
-
-                    <div class="card-content">
-
-                      <h4 class="headline headline-4 card-title">
-                        <a href="#" class="com">"Support businesses and products that prioritize sustainability. Our purchasing choices can drive positive change! 🛒🌍"
-
-                        </a>
-                      </h4>
-
-                      <div class="warpper">
-                        <p class="card-subtitle">3 secs ago</p>
-
-                        <time class="pub-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-
-            <div class="card aside-card">
-
-              <h3 class="headline headline-2 aside-title">
-                <span class="s" style="font-size: 40px;">Last Comment</span>
-              </h3>
-
-              <ul class="comment-list">
-
-                <li>
-                  <div class="comment-card">
-
-                    <blockquote class="com">
-                      "Climate change is real. It is happening right now. It is the most urgent threat facing our entire species, and we need to work collectively together and stop procrastinating. We need to support leaders around the world who do not speak for the big polluters, but who speak for all of humanity, for the indigenous people of the world, for the billions and billions of underprivileged people who will be most affected by this."
-                    </blockquote>
-
-                    <div class="profile-card">
-                      <figure class="profile-banner img-holder">
-                        <img src="img/Leonardo DiCaprio.jpg" width="32" height="32" loading="lazy" alt="Jane Cooper">
-                      </figure>
-
-                      <div>
-                        <p class="n" style="color: white; font-weight: bold; font-size: 17px;" >Leonardo DiCaprio</p>
-
-                        <time class="card-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-                    </div>
-
-                  </div>
-                </li>
-
-                
-
-                <li>
-                  <div class="comment-card">
-
-                    <blockquote class="com">
-                      "I don’t want you to be hopeful. I want you to panic. I want you to feel the fear I feel every day. And then I want you to act. I want you to act as if the house was on fire, because it is."
-                    </blockquote>
-
-                    <div class="profile-card">
-                      <figure class="profile-banner img-holder">
-                        <img src="img/GRETA THUNBERG.jpg" width="32" height="32" loading="lazy" alt="Katen Doe">
-                      </figure>
-
-                      <div>
-                        <p class="n" style="color: white; font-weight: bold; font-size: 17px;" >Greta Thunberg</p>
-
-                        <time class="card-date" datetime="204-05-18">18 May 2024</time>
-                      </div>
-                    </div>
-
-                  </div>
-                </li>
-
-                <li>
-                  <div class="comment-card">
-
-                    <blockquote class="com">
-                      "The scientific evidence is now overwhelming: climate change presents very serious global risks. It demands an urgent global response. If we continue on our current path, we will face the collapse of our societies and the extinction of much of the natural world."
-                    </blockquote>
-
-                    <div class="profile-card">
-                      <figure class="profile-banner img-holder">
-                        <img src="img/aaaa.jpg" width="32" height="32" loading="lazy"
-                          alt="Barbara Cartland">
-                      </figure>
-
-                      <div>
-                        <p class="n" style="color: white; font-weight: bold; font-size: 17px;" >Sir David Attenborough</p>
-
-                        <time class="card-date" datetime="2024-05-18">18 May 2024</time>
-                      </div>
-                    </div>
-
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-
-            <div class="card aside-card insta-card">
-
-              <a href="#" class="logo">
-                <img src="img/earth-removebg-preview.png" width="119" height="37" loading="lazy" alt="Wren logo">
-              </a>
-
-              <p class="card-text" style="color: white; font-weight: bold; font-size: 30px;">
-                Student Volunteers
-              </p>
-
-              <ul class="insta-list">
-
-                <li>
-                  <a href="https://www.instagram.com/crls_brook/" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/413176132_1490694741788327_6171468843337700105_n.jpg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.instagram.com/adi_woooow/" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/received_1566086830894722 (1).jpeg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.facebook.com/profile.php?id=100086848111769" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/436596675_760770256044021_6695509813657021885_n.jpg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.instagram.com/eimanbisa/" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/pic.jpg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.instagram.com/aerhoze22/" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/441059181_25678265511789003_203234534670891578_n.jpg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.facebook.com/zyrelllj.hidalgo?mibextid=ZbWKwL" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/zyrell.jpg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.instagram.com/ryhnmmx?igsh=MTl5cnprbzE0bWJpdw==" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/escober.png" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.instagram.com/den_ryle?igsh=MWg3cG1nY2U3emkxaQ== " class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/received_819953090007223.jpeg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href=" https://www.instagram.com/aintkurtt/" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/440981525_894104965817010_2946581694803381330_n.jpg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.instagram.com/bnsl_al/" class="insta-post img-holder" style="--width: 276; --height: 277;">
-                    <img src="img/IMG_20240504_163559.jpg" width="276" height="277" loading="lazy" alt="insta post"
-                      class="img-cover">
-                  </a>
-                </li>
-
-              </ul>
-
-            </div>
-
+          <div class="carousel-controls">
+            <button class="icon-btn" aria-label="Previous" data-carousel-prev><ion-icon name="chevron-back" aria-hidden="true"></ion-icon></button>
+            <button class="icon-btn" aria-label="Next" data-carousel-next><ion-icon name="chevron-forward" aria-hidden="true"></ion-icon></button>
           </div>
+        </header>
 
+        <ul class="voice-track" data-carousel>
+          <li class="voice">
+            <img src="img/ilyess_1440812.jpg" alt="Ilyess El Korbi" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Fridays For Future Ukraine</p>
+              <h3 class="voice-name">Ilyess El Korbi</h3>
+              <p class="voice-text">Helped register Ukraine's first climate protests in 2019 and now serves as board secretary of Fridays For Future Ukraine, raising awareness from Berlin.</p>
+            </div>
+          </li>
+          <li class="voice">
+            <img src="img/img_20210503_221624.jpg" alt="Elizabeth Wanjiru Wathuti" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Green Generation Initiative</p>
+              <h3 class="voice-name">Elizabeth Wanjiru Wathuti</h3>
+              <p class="voice-text">Award-winning Kenyan activist whose initiative has planted over 30,000 tree seedlings and inspires young people to care for nature.</p>
+            </div>
+          </li>
+          <li class="voice">
+            <img src="img/image.png" alt="Greta Thunberg" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Fridays for Future</p>
+              <h3 class="voice-name">Greta Thunberg</h3>
+              <p class="voice-text">A solo school protest that became an international strike of millions. Sailed the Atlantic for the 2019 UN climate conference.</p>
+            </div>
+          </li>
+          <li class="voice">
+            <img src="img/thumbnail_47121558-7f30-468f-8bbc-24c59afb1b98.jpeg" alt="Tori Tsui" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Writer & speaker</p>
+              <h3 class="voice-name">Tori Tsui</h3>
+              <p class="voice-text">Bristol-based climate justice activist from Hong Kong and New Zealand, campaigning for reparative action that benefits the most marginalised.</p>
+            </div>
+          </li>
+          <li class="voice">
+            <img src="img/Screenshot 2024-05-17 211933.png" alt="John Paul Jose" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Kerala, India</p>
+              <h3 class="voice-name">John Paul Jose</h3>
+              <p class="voice-text">Environmental activist working with NGOs and the UN to highlight how global warming is affecting India's forests and ecosystems.</p>
+            </div>
+          </li>
+          <li class="voice">
+            <img src="img/image copy.png" alt="Climate Change Commission" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Philippines</p>
+              <h3 class="voice-name">Climate Change Commission</h3>
+              <p class="voice-text">The country's lead policy body on climate change, building adaptive capacity and steering toward a climate-resilient, low-carbon economy.</p>
+            </div>
+          </li>
+          <li class="voice">
+            <img src="img/Screenshot 2024-05-18 103904.png" alt="Dominique Palmer" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Climate justice</p>
+              <h3 class="voice-name">Dominique Palmer</h3>
+              <p class="voice-text">Climate justice activist and University of Birmingham student, active in the youth-led Fridays for Future movement.</p>
+            </div>
+          </li>
+          <li class="voice">
+            <img src="img/Screenshot 2024-05-18 104228.png" alt="Fatou Jeng" loading="lazy">
+            <div class="voice-body">
+              <p class="voice-role">Clean Earth Gambia</p>
+              <h3 class="voice-name">Fatou Jeng</h3>
+              <p class="voice-text">Youth climate activist in Gambia focused on education, conservation and tree planting, and founder of Clean Earth Gambia.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="quote-grid">
+          <figure class="panel quote">
+            <blockquote>"Climate change is real. It is happening right now. It is the most urgent threat facing our entire species."</blockquote>
+            <figcaption><img src="img/Leonardo DiCaprio.jpg" alt="" loading="lazy"> Leonardo DiCaprio</figcaption>
+          </figure>
+          <figure class="panel quote">
+            <blockquote>"I want you to act as if the house was on fire, because it is."</blockquote>
+            <figcaption><img src="img/GRETA THUNBERG.jpg" alt="" loading="lazy"> Greta Thunberg</figcaption>
+          </figure>
+          <figure class="panel quote">
+            <blockquote>"The scientific evidence is now overwhelming: climate change presents very serious global risks."</blockquote>
+            <figcaption><img src="img/aaaa.jpg" alt="" loading="lazy"> Sir David Attenborough</figcaption>
+          </figure>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </article>
+
+    <!--
+      - #TEAM
+    -->
+    <section class="section team" id="team" aria-labelledby="team-label">
+      <div class="container">
+        <a class="panel dev-card" href="https://www.instagram.com/crls_brook/" target="_blank" rel="noopener">
+          <img src="img/413176132_1490694741788327_6171468843337700105_n.jpg" alt="Carlos Yajie Fetizanan" loading="lazy">
+          <div class="dev-body">
+            <p class="eyebrow">Designed &amp; developed by</p>
+            <h2 class="dev-name" id="team-label">Carlos Yajie Fetizanan</h2>
+            <p class="dev-text">Environmental Science semestral project — turning live weather data into a clearer picture of our changing climate.</p>
+            <span class="text-link">Say hello <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
   </main>
 
 
-
-
-
-  <!-- 
+  <!--
     - #FOOTER
   -->
-
-  <footer>
-    <div class="container" id="cont">
-
-      <div class="card footer">
-
-        <div class="section footer-top">
-
-          <div class="footer-brand">
-
-            <a href="#" class="logo">
-              <img src="img/earth-removebg-preview.png" width="119" height="37" loading="lazy" alt="Wren logo">
-            </a>
-
-            <p class="footer-text">
-              <strong>Climate Awareness is Crucial</strong><br><br>
-              Climate change is the challenge of our era. Driven by human activity, it threatens biodiversity, food security, and communities worldwide. By raising awareness, we empower action. Join us to protect our Earth and secure a sustainable future.
-            </p>
-
-            <p class="footer-list-title">Address</p>
-
-            <address class="footer-text address">
-              Tanco Drive Marawoy Lipa <br>
-              Batangas, Philippines 4225
-            </address>
-
-          </div>
-
-          <div class="footer-list">
-
-            <p class="footer-list-title">Group Members</p>
-
-            <ul>
-
-              <li>
-                <a href="https://www.instagram.com/crls_brook/" class="footer-link hover-2" style="font-weight: bold;">Fetizanan, Carlos Yajie</a>
-              </li>
-
-              <li>
-                <a href="https://www.facebook.com/profile.php?id=100086848111769" class="footer-link hover-2" style="font-weight: bold;">Care, KC</a>
-              </li>
-
-              <li>
-                <a href="https://www.instagram.com/bnsl_al/" class="footer-link hover-2" style="font-weight: bold;">Bansil, Albert</a>
-              </li>
-
-              <li>
-                <a href="https://www.instagram.com/den_ryle?igsh=MWg3cG1nY2U3emkxaQ== " class="footer-link hover-2" style="font-weight: bold;">Calingasan, Ryle</a>
-              </li>
-
-              <li>
-                <a href="https://www.instagram.com/aintkurtt/" class="footer-link hover-2" style="font-weight: bold;">Isaac, Kurt</a>
-              </li>
-
-              <li>
-                <a href="https://www.instagram.com/adi_woooow/" class="footer-link hover-2" style="font-weight: bold;">Camota, Adrian</a>
-              </li>
-
-              <li>
-                <a href="https://www.facebook.com/zyrelllj.hidalgo?mibextid=ZbWKwL" class="footer-link hover-2" style="font-weight: bold;">Hidalgo, Zyrelle</a>
-              </li>
-
-              <li>
-                <a href="https://www.instagram.com/eimanbisa/" class="footer-link hover-2" style="font-weight: bold;">Bisa, Eiman Raphael</a>
-              </li>
-
-              <li>
-                <a href="https://www.facebook.com/zyrelllj.hidalgo?mibextid=ZbWKwL" class="footer-link hover-2" style="font-weight: bold;">Jardin, Fiel Aerhoze</a>
-              </li>
-
-              <li>
-                <a href="https://www.instagram.com/ryhnmmx?igsh=MTl5cnprbzE0bWJpdw==" class="footer-link hover-2" style="font-weight: bold;">Escober, Reyahn Marnest</a>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <div class="footer-list">
-
-            <p class="footer-list-title">Newsletter</p>
-
-            <p class="footer-text">
-              Our Climate Change Program tackles global warming through innovation. We focus on emissions reduction, renewable energy, and education. Support us today for a sustainable future.
-            </p>
-
-            <div class="input-wrapper">
-              <input type="text" name="name" placeholder="Your name" required class="input-field" autocomplete="off">
-
-              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-            </div>
-
-            <div class="input-wrapper">
-              <input type="email" name="email_address" placeholder="Emaill address" required class="input-field"
-                autocomplete="off">
-
-              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-            </div>
-
-            <a href="#" class="btn btn-primary">
-              <span class="span">Subscribe</span>
-
-              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-            </a>
-
-          </div>
-
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="panel footer-card">
+        <div class="footer-brand">
+          <a href="#top" class="brand">
+            <span class="brand-mark"><img src="img/earth-removebg-preview.png" width="28" height="28" alt=""></span>
+            <span class="brand-word">Climate</span>
+          </a>
+          <p class="footer-text">
+            Climate awareness is crucial. By understanding the weather around us and the climate behind it, we empower action.
+          </p>
+          <address class="footer-address">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+            Tanco Drive, Marawoy, Lipa<br>Batangas, Philippines 4225
+          </address>
         </div>
+
+        <form class="newsletter" data-newsletter novalidate>
+          <p class="footer-title">Daily climate briefing</p>
+          <p class="footer-text">Forecast highlights, heat alerts and climate news — straight to your inbox.</p>
+          <div class="field-row">
+            <label class="field">
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+              <input type="text" name="name" placeholder="Your name" autocomplete="name">
+            </label>
+            <label class="field">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
+            </label>
+            <button type="submit" class="btn btn-primary">Subscribe <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></button>
+          </div>
+        </form>
 
         <div class="footer-bottom">
-
-          <p class="copyright">
-            &copy; Developed by carlosyajie<a href="#" class="copyright-link">carlosyajieF</a>
-          </p>
-
+          <p>© 2024 Climate · Developed by <a href="https://www.linkedin.com/in/carlos-yajie-fetizanan-b320a1286/" target="_blank" rel="noopener">Carlos Yajie Fetizanan</a></p>
           <ul class="social-list">
-
-            <li>
-              <a href="https://x.com/ClimateReality" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-
-                <span class="span">Twitter</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.linkedin.com/in/carlos-yajie-fetizanan-b320a1286/" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-
-                <span class="span">LinkedIn</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.instagram.com/crls_brook/" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-
-                <span class="span">Instagram</span>
-              </a>
-            </li>
-
+            <li><a href="https://x.com/ClimateReality" class="icon-btn" aria-label="X / Twitter" target="_blank" rel="noopener"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a href="https://www.linkedin.com/in/carlos-yajie-fetizanan-b320a1286/" class="icon-btn" aria-label="LinkedIn" target="_blank" rel="noopener"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            <li><a href="https://www.instagram.com/crls_brook/" class="icon-btn" aria-label="Instagram" target="_blank" rel="noopener"><ion-icon name="logo-instagram"></ion-icon></a></li>
           </ul>
-
         </div>
-
       </div>
-
     </div>
   </footer>
 
-
-
-
-
-  <!-- 
-    - #BACK TO TOP
-  -->
-
-  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
     <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
   </a>
 
+  <div class="toast-region" data-toasts></div>
 
-
-
-
-  <!-- 
-    - custom js link
-  -->
   <script src="climate_change.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
