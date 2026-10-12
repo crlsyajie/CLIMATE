@@ -1,16 +1,6 @@
 Climate Change Website 
 
-GROUP MEMBERS:
-Fetizanan, Carlos Yajie
-Care, KC
-Bansil, Albert
-Calingasan, Ryle
-Isaac, Kurt
-Camota, Adrian
-Hidalgo, Zyrelle
-Bisa, Eiman Raphael
-Jardin, Fiel Aerhoze
-Escober, Reyahn Marnest
+Developer: Carlos Yajie Fetizanan
 
 
 Introduction:
